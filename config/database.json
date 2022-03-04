@@ -3,24 +3,24 @@
     "username": "root",
     "password": "password",
     "operatorsAliases": false,
-    "database": "medium",
-    "host": "vuejs-medium.herokuapp.com",
+    "database": "id18557251_medium",
+    "host": "databases.000webhost.com",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": null,
     "operatorsAliases": false,
-    "database": "test",
-    "host": "vuejs-medium.herokuapp.com",
+    "database": "id18557251_medium",
+    "host": "databases.000webhost.com",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": null,
     "operatorsAliases": false,
-    "database": "test",
-    "host": "vuejs-medium.herokuapp.com",
+    "database": "id18557251_medium",
+    "host": "databases.000webhost.com",
     "dialect": "mysql"
   }
 }
