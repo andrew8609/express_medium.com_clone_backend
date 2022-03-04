@@ -31,8 +31,8 @@ module.exports = {
                          req.body.email,
                         //"05ba041830-4a42ae@inbox.mailtrap.io",
                         'please signin',
-                        `hello please sign in. Your account is already existing. This is the link: ${config.DOMAIN}/api/auth/confirmSigninByToken?token=${token}
-                        <a href="${config.DOMAIN}/auth/confirmSigninByToken?token=${token}" style="color: rgb(255, 255, 255); text-decoration: none; display: inline-block; position: relative; height: 38px; line-height: 38px; padding: 0px 24px; border: 0px none; outline: currentcolor none 0px; background-color: rgb(26, 137, 23); font-size: 14px; font-style: normal; font-weight: 400; text-align: center; cursor: pointer; white-space: nowrap; text-rendering: optimizelegibility; user-select: none; border-radius: 99em; margin-top: 35px; margin-bottom: 35px;">Create your account</a>`
+                        `hello please sign in. Your account is already existing. This is the link: ${config.FRONTEND_DOMAIN}/auth/confirmSigninByToken?token=${token}
+                        <a href="${config.FRONTEND_DOMAIN}/auth/confirmSigninByToken?token=${token}" style="color: rgb(255, 255, 255); text-decoration: none; display: inline-block; position: relative; height: 38px; line-height: 38px; padding: 0px 24px; border: 0px none; outline: currentcolor none 0px; background-color: rgb(26, 137, 23); font-size: 14px; font-style: normal; font-weight: 400; text-align: center; cursor: pointer; white-space: nowrap; text-rendering: optimizelegibility; user-select: none; border-radius: 99em; margin-top: 35px; margin-bottom: 35px;">Create your account</a>`
                     );
                     return res.status(200).json({message: "mail sent to your email account"});
                 } else {
@@ -41,7 +41,7 @@ module.exports = {
                         req.body.email,
                         //"05ba041830-4a42ae@inbox.mailtrap.io",
                         'Sign Up',
-                        `hello please sign up.  This is the link: ${config.DOMAIN}/api/auth/confirmSignupByToken?token=${token}`
+                        `hello please sign up.  This is the link: ${config.FRONTEND_DOMAIN}/auth/confirmSignupByToken?token=${token}`
                     );
                     return res.status(200).json({message: "mail sent to your email account"});
                 }                          
@@ -60,7 +60,7 @@ module.exports = {
                      req.body.email,
                     //"05ba041830-4a42ae@inbox.mailtrap.io",
                     'please signup',
-                    `hello please sign up. This is the link: ${config.DOMAIN}/api/auth/confirmSignupByToken?token=${token}`
+                    `hello please sign up. This is the link: ${config.FRONTEND_DOMAIN}/auth/confirmSignupByToken?token=${token}`
                 );
                 
                 res.status(200).json({message: "mail sent to your email account"})
@@ -117,8 +117,8 @@ module.exports = {
                           req.body.email,
                          //"05ba041830-4a42ae@inbox.mailtrap.io",
                          'please signin',
-                         `hello please sign in. Your account is already existing. This is the link: ${config.DOMAIN}/api/auth/confirmSigninByToken?token=${token}
-                         <a href="${config.DOMAIN}/auth/confirmSigninByToken?token=${token}" style="color: rgb(255, 255, 255); text-decoration: none; display: inline-block; position: relative; height: 38px; line-height: 38px; padding: 0px 24px; border: 0px none; outline: currentcolor none 0px; background-color: rgb(26, 137, 23); font-size: 14px; font-style: normal; font-weight: 400; text-align: center; cursor: pointer; white-space: nowrap; text-rendering: optimizelegibility; user-select: none; border-radius: 99em; margin-top: 35px; margin-bottom: 35px;">Create your account</a>`
+                         `hello please sign in. Your account is already existing. This is the link: ${config.FRONTEND_DOMAIN}/auth/confirmSigninByToken?token=${token}
+                         <a href="${config.FRONTEND_DOMAIN}/auth/confirmSigninByToken?token=${token}" style="color: rgb(255, 255, 255); text-decoration: none; display: inline-block; position: relative; height: 38px; line-height: 38px; padding: 0px 24px; border: 0px none; outline: currentcolor none 0px; background-color: rgb(26, 137, 23); font-size: 14px; font-style: normal; font-weight: 400; text-align: center; cursor: pointer; white-space: nowrap; text-rendering: optimizelegibility; user-select: none; border-radius: 99em; margin-top: 35px; margin-bottom: 35px;">Create your account</a>`
                      );
                 } else {
                     return res.status(200).json({message: "Sorry, we didn't recognize that email."});
