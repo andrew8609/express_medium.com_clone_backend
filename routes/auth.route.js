@@ -15,11 +15,11 @@ module.exports = (app) => {
   });
 
   app.post('/api/auth/signUpByEmail', authController.signUpByEmail);
-  app.post('/api/auth/confirmSignupByToken', authController.confirmSignupByToken); 
+  app.get('/api/auth/confirmSignupByToken', authController.confirmSignupByToken); 
   app.post("/api/auth/refreshToken", authController.refreshToken);
   app.get("/api/auth/checkAccessToken", authController.checkAccessToken);
   app.post("/api/auth/signinWithEmail", authController.signinWithEmail);
-  app.post('/api/auth/confirmSigninByToken', authController.confirmSigninByToken); 
+  app.get('/api/auth/confirmSigninByToken', authController.confirmSigninByToken); 
 
   app.get('/login', function(req,res){  res.render('auth/login'); });
   
