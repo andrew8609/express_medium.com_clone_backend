@@ -1,10 +1,10 @@
 {
   "development": {
-    "username": "root",
-    "password": "password",
+    "username": "sql6476800",
+    "password": "B49rI78UXR",
     "operatorsAliases": false,
     "database": "id18557251_medium",
-    "host": "databases.000webhost.com",
+    "host": "sql6.freemysqlhosting.net",
     "dialect": "mysql"
   },
   "test": {
