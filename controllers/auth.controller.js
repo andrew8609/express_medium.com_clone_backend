@@ -70,7 +70,7 @@ module.exports = {
     },
 
     confirmSignupByToken(req, res) {
-        jwt.verify(req.query.token, process.env.JWT_EMAIL_LINK_SECRET, function(err, decoded) {
+        jwt.verify(req.body.token, process.env.JWT_EMAIL_LINK_SECRET, function(err, decoded) {
 
             if (err) {
                 
@@ -135,7 +135,7 @@ module.exports = {
     
     confirmSigninByToken(req, res) {
 
-        jwt.verify(req.query.token, process.env.JWT_EMAIL_LINK_SECRET, function(err, decoded) {
+        jwt.verify(req.body.token, process.env.JWT_EMAIL_LINK_SECRET, function(err, decoded) {
             if (err) {
                 
                 if(err instanceof jwt.TokenExpiredError){
