@@ -46,7 +46,7 @@ module.exports = {
             
             username = req.body.username || usr.username;
             email =  req.body.email || usr.email;
-            photo_url = req.filename? config.DOMAIN+req.filename : usr.photo_url;
+            photo_url = req.filename? config.DOMAIN + "/" +req.filename : usr.photo_url;
             bio_note = req.body.bio_note || usr.bio_note;
 
             return usr

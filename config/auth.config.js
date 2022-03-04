@@ -7,6 +7,6 @@ module.exports = {
     jwtExpiration: 6000,          // 1 minute
     jwtRefreshExpiration: 12000,  // 2 minutes
     DOMAIN: "https://vuejs-medium.herokuapp.com",
-    FRONTEND_DOMAIN: "https://https://agitated-colden-958a3b.netlify.app/"
+    FRONTEND_DOMAIN: "https://agitated-colden-958a3b.netlify.app"
   };
   
