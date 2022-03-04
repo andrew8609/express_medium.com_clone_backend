@@ -16,10 +16,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
+    "username": "sql6476800",
+    "password": "B49rI78UXR",
     "operatorsAliases": false,
-    "database": "test",
+    "database": "sql6476800",
     "host": "sql6.freemysqlhosting.net",
     "dialect": "mysql"
   }
