@@ -4,15 +4,15 @@
     "password": "password",
     "operatorsAliases": false,
     "database": "medium",
-    "host": "vuejs-medium.herokuapp.com",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
+    "username": "sql6476800",
+    "password": "B49rI78UXR",
     "operatorsAliases": false,
-    "database": "test",
-    "host": "vuejs-medium.herokuapp.com",
+    "database": "sql6476800",
+    "host": "sql6.freemysqlhosting.net",
     "dialect": "mysql"
   },
   "production": {
@@ -20,7 +20,7 @@
     "password": null,
     "operatorsAliases": false,
     "database": "test",
-    "host": "vuejs-medium.herokuapp.com",
+    "host": "sql6.freemysqlhosting.net",
     "dialect": "mysql"
   }
 }
