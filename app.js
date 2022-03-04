@@ -6,6 +6,8 @@ var logger = require('morgan');
 var Sequelize = require('sequelize');
 require('dotenv').config()
 
+process.env.PWD = process.cwd();
+
 var app = express();
 var cors = require('cors');
 // view engine setup
@@ -14,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
-app.use(express.static('./uploads'));
+app.use(express.static(path.join(process.env.PWD, 'uploads')));
 
 require('./routes/auth.route')(app);
 require('./routes/user.route')(app);
