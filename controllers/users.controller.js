@@ -5,7 +5,7 @@ const Comment = require('../db/models').Comment;
 const Story = require('../db/models').Story;
 const Follow = require('../db/models').Follow;
 const RefreshToken = require('../db/models').RefreshToken;
-
+const config = require("../config/auth.config");
 const ResponseFormat = require('../core').ResponseFormat;
 const SendEmail = require('../core').SendEmail;
 const Pagination = require('../core').Pagination;
@@ -46,7 +46,7 @@ module.exports = {
             
             username = req.body.username || usr.username;
             email =  req.body.email || usr.email;
-            photo_url = req.filename? "http://localhost:3000/"+req.filename : usr.photo_url;
+            photo_url = req.filename? config.DOMAIN+req.filename : usr.photo_url;
             bio_note = req.body.bio_note || usr.bio_note;
 
             return usr
