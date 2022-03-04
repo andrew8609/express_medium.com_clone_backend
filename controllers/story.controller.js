@@ -78,7 +78,7 @@ module.exports = {
         for (let index = 0; index < hashtags.length; index++) {
             await Hashtag.findOne({
                 where: {
-                    hashtag_name: hashtags[index]
+                    hashtag_name: hashtags[index].hashtag_name
                 }
             })
             .then(async(record) => {
@@ -91,7 +91,7 @@ module.exports = {
 
                 } else {
                     await Hashtag.create({
-                        hashtag_name: hashtags[index],
+                        hashtag_name: hashtags[index].hashtag_name,
                     })
                     .then(async newRecord=>{
                             await Stories_hashtag.create({
