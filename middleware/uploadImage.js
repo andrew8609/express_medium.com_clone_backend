@@ -7,7 +7,6 @@ var storage = multer.diskStorage({
   filename: function (req, file, cb) {
     datetime = Date.now();
     req.filename = Date.now() + '-' + file.originalname;
-    console.log("============= image path: " + req.filename);
      cb(null, req.filename);
   }
 });

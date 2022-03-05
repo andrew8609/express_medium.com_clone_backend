@@ -10,6 +10,7 @@ const ResponseFormat = require('../core').ResponseFormat;
 const SendEmail = require('../core').SendEmail;
 const Pagination = require('../core').Pagination;
 const crypto = require("crypto");
+const imgbbUploader = require("imgbb-uploader");
 
 
 module.exports = {
@@ -36,32 +37,37 @@ module.exports = {
     },
 
     async updateMyProfile(req, res) {    
-        return await User
-        .findById(req.userId)
-        .then(usr => {
-            if(!usr) {
-                return res.status(404).json({ message: "user not found"});
-            }
+        await imgbbUploader("b65004f0d39d120ee91ca15acd8b010a", "./uploads/"+req.filename)
+            .then(async (response) => {
+                await User
+                    .findById(req.userId)
+                    .then(usr => {
+                        if(!usr) {
+                            return res.status(404).json({ message: "user not found"});
+                        }
 
-            
-            username = req.body.username || usr.username;
-            email =  req.body.email || usr.email;
-            photo_url = req.filename? config.BACKEND_DOMAIN + "/" +req.filename : usr.photo_url;
-            bio_note = req.body.bio_note || usr.bio_note;
+                        
+                        username = req.body.username || usr.username;
+                        email =  req.body.email || usr.email;
+                        photo_url = req.filename? response.url : usr.photo_url;
+                        bio_note = req.body.bio_note || usr.bio_note;
 
-            return usr
-            .update({
-                username: username,
-                email:  email,
-                photo_url: photo_url,
-                bio_note: bio_note
+                        return usr
+                        .update({
+                            username: username,
+                            email:  email,
+                            photo_url: photo_url,
+                            bio_note: bio_note
+                        })
+                        .then(() => res.status(200).json({  username: username,
+                                                            email:  email,
+                                                            photo_url: photo_url,
+                                                            bio_note: bio_note }))
+                        .catch((error) => res.status(500).json({message: "something went wrong when update the user"}));
+                    });
+
             })
-            .then(() => res.status(200).json({  username: username,
-                                                email:  email,
-                                                photo_url: photo_url,
-                                                bio_note: bio_note }))
-            .catch((error) => res.status(500).json({message: "something went wrong when update the user"}));
-        });
+            .catch((error) => res.status(500).json("error: " +error));
 
     },
 
