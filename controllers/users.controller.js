@@ -37,37 +37,32 @@ module.exports = {
     },
 
     async updateMyProfile(req, res) {    
-        await imgbbUploader("b65004f0d39d120ee91ca15acd8b010a", "./uploads/"+req.filename)
-            .then(async (response) => {
-                await User
-                    .findById(req.userId)
-                    .then(usr => {
-                        if(!usr) {
-                            return res.status(404).json({ message: "user not found"});
-                        }
+        await User
+            .findById(req.userId)
+            .then(usr => {
+                if(!usr) {
+                    return res.status(404).json({ message: "user not found"});
+                }
 
-                        
-                        username = req.body.username || usr.username;
-                        email =  req.body.email || usr.email;
-                        photo_url = req.filename? response.url : usr.photo_url;
-                        bio_note = req.body.bio_note || usr.bio_note;
+                
+                username = req.body.username || usr.username;
+                email =  req.body.email || usr.email;
+                photo_url = req.filename? req.file.path : usr.photo_url;
+                bio_note = req.body.bio_note || usr.bio_note;
 
-                        return usr
-                        .update({
-                            username: username,
-                            email:  email,
-                            photo_url: photo_url,
-                            bio_note: bio_note
-                        })
-                        .then(() => res.status(200).json({  username: username,
-                                                            email:  email,
-                                                            photo_url: photo_url,
-                                                            bio_note: bio_note }))
-                        .catch((error) => res.status(500).json({message: "something went wrong when update the user"}));
-                    });
-
-            })
-            .catch((error) => res.status(500).json("error: " +error));
+                return usr
+                .update({
+                    username: username,
+                    email:  email,
+                    photo_url: photo_url,
+                    bio_note: bio_note
+                })
+                .then(() => res.status(200).json({  username: username,
+                                                    email:  email,
+                                                    photo_url: photo_url,
+                                                    bio_note: bio_note }))
+                .catch((error) => res.status(500).json({message: "something went wrong when update the user"}));
+            });
 
     },
 
